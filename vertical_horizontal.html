@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>Vertical &amp; Horizontal | jQuery SweetScroll</title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="vendor/highlight/styles/github.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body class="examples">
+
+  <div class="header">
+    <p class="logo"><a class="btn btn-primary" href="index.html#examples"><i class="fa fa-chevron-left"></i> Top page</a></p>
+  <!-- .header --></div>
+
+  <div class="cover">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Vertical &amp; Horizontal</h1>
+        <p>
+          You can also be used to scroll horizontally to other than vertical.<br />
+          To use this feature you will need to enable the <code>horizontalScroll</code> option.
+        </p>
+
+        <h2>Go to</h2>
+        <div class="form-inline">
+          <div class="form-group">
+            <select id="value-target" class="form-control input-lg">
+              <option value="#block1">#block1</option>
+              <option value="#block2">#block2</option>
+              <option value="#block3">#block3</option>
+              <option value="#block4">#block4</option>
+              <option value="#block5">#block5</option>
+              <option value="#block6">#block6</option>
+              <option value="#block7">#block7</option>
+              <option value="#block8">#block8</option>
+              <option value="#block9">#block9</option>
+              <option value="#block10">#block10</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <button type="button" id="btn-scroll" class="btn btn-lg btn-primary">Go!</button>
+          </div>
+        </div>
+
+        <h3>HTML</h3>
+        <pre><code class="html">&lt;div class=&quot;form-inline&quot;&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;select id=&quot;value-target&quot; class=&quot;form-control input-lg&quot;&gt;
+      &lt;option value=&quot;#block1&quot;&gt;#block1&lt;/option&gt;
+      &lt;option value=&quot;#block2&quot;&gt;#block2&lt;/option&gt;
+      &lt;option value=&quot;#block3&quot;&gt;#block3&lt;/option&gt;
+      &lt;option value=&quot;#block4&quot;&gt;#block4&lt;/option&gt;
+      &lt;option value=&quot;#block5&quot;&gt;#block5&lt;/option&gt;
+      &lt;option value=&quot;#block6&quot;&gt;#block6&lt;/option&gt;
+      &lt;option value=&quot;#block7&quot;&gt;#block7&lt;/option&gt;
+      &lt;option value=&quot;#block8&quot;&gt;#block8&lt;/option&gt;
+      &lt;option value=&quot;#block9&quot;&gt;#block9&lt;/option&gt;
+      &lt;option value=&quot;#block10&quot;&gt;#block10&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;button type=&quot;button&quot; id=&quot;btn-scroll&quot; class=&quot;btn btn-lg btn-primary&quot;&gt;Go!&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3>JavaScript</h3>
+        <pre><code class="javascript">$(function(){
+
+  $(&quot;#btn-scroll&quot;).on(&quot;click&quot;, function(){
+    $.sweetScroll({
+      target: $(&quot;#value-target&quot;).val(),
+      verticalScroll: true,
+      horizontalScroll: true
+    });
+  });
+
+});
+</code></pre>
+      </div>
+    </div>
+  <!-- .cover --></div>
+
+  <div class="block-row">
+    <div class="block" id="block1"><h2>Block 1</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+    <div class="block" id="block2"><h2>Block 2</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+    <div class="block" id="block3"><h2>Block 3</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+    <div class="block" id="block4"><h2>Block 4</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+    <div class="block" id="block5"><h2>Block 5</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  </div>
+
+  <div class="block-row">
+    <div class="block" id="block6"><h2>Block 6</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+    <div class="block" id="block7"><h2>Block 7</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+    <div class="block" id="block8"><h2>Block 8</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+    <div class="block" id="block9"><h2>Block 9</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+    <div class="block" id="block10"><h2>Block 10</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  </div>
+  
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="js/jquery.sweet-scroll.js"></script>
+  <script>
+$(function(){
+
+  $("#btn-scroll").on("click", function(){
+    $.sweetScroll({
+      target: $("#value-target").val(),
+      verticalScroll: true,
+      horizontalScroll: true
+    });
+  });
+
+  $("a[href^='#'], [data-target^='#']").sweetScroll({
+    verticalScroll: true,
+    horizontalScroll: true
+  });
+});
+  </script>
+
+</body>
+</html>

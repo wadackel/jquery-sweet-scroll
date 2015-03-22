@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="jQuery SweetScroll" />
+  <meta property="og:description" content="It is possible to easily and flexibly implement smooth scrolling in the same page." />
+  <meta property="og:url" content="https://github.com/tsuyoshiwada/jquery-sweet-scroll/demo/" />
+  <meta property="og:site_name" content="jQuery SweetScroll" />
+  <meta property="article:publisher" content="https://www.facebook.com/wada.tsuyoshi" />
+  <meta property="fb:admins" content="100001954365929" />
+  <title>jQuery SweetScroll</title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="vendor/highlight/styles/github.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <div class="cover">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>jQuery SweetScroll</h1>
+        <p>It is possible to easily and flexibly implement smooth scrolling in the same page.</p>
+        <ul class="list-inline">
+          <li><a class="btn btn-lg btn-primary" href="js/jquery.sweetScroll.min.js" download><i class="fa fa-download"></i> Download</a></li>
+          <li><a class="btn btn-lg btn-primary" href="https://github.com/tsuyoshiwada/jquery-sweet-scroll"><i class="fa fa-github"></i> Source on Github</a></li>
+        </ul>
+        <ul class="list-share list-inline">
+          <li><a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li>
+          <li><div class="fb-like" data-href="https://github.com/tsuyoshiwada/jquery-sweet-scroll/demo/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></li>
+          <li><a data-save-url="https://github.com/tsuyoshiwada/jquery-sweet-scroll/demo/" data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a><script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script></li>
+        </ul>
+      </div>
+    </div>
+  <!-- .cover --></div>
+
+  <div class="section" id="demo">
+    <div class="container">
+      <h2>Demo</h2>
+      <p class="lead">Let's smooth scrolling!</p>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">To</span>
+              <input type="text" id="value-to" value="0" class="form-control input-lg">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">Offset</span>
+              <input type="text" id="value-offset" value="0" class="form-control input-lg">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">Duration</span>
+              <input type="text" id="value-duration" value="1000" class="form-control input-lg">
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">Easing</span>
+              <select id="value-easing" class="form-control input-lg">
+                <option value="linear">linear</option>
+                <option value="swing">swing</option>
+                <option value="easeInQuint">easeInQuint</option>
+                <option value="easeOutQuint" selected="selected">easeOutQuint</option>
+                <option value="easeInOutQuint">easeInOutQuint</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <button type="button" id="btn-demo" class="btn btn-lg btn-primary">Go!</button>
+        </div>
+      </div>
+    </div>
+  <!-- #demo --></div>
+
+  <div class="section" id="install">
+    <div class="container">
+      <h2>Install</h2>
+      <p class="lead"><code>script</code> or you can install it using the package manager.</p>
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>&lt;script&gt;</h3>
+          <pre><code>&lt;script src=&quot;jquery.sweetScroll.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+        </div>
+        <div class="col-sm-4">
+          <h3>NPM</h3>
+          <pre><code>$ npm install jquery-sweet-scroll</code></pre>
+        </div>
+        <div class="col-sm-4">
+          <h3>Bower</h3>
+          <pre><code>$ bower install jquery-sweet-scroll</code></pre>
+        </div>
+      </div>
+    </div>
+  <!-- #install --></div>
+
+  <div class="section" id="setup">
+    <div class="container">
+      <h2>Easy to setup</h2>
+      <p class="lead">You can start using it right away with a simple setup</p>
+      <div class="row">
+        <div class="col-sm-6">
+          <h3>HTML</h3>
+          <pre><code class="html">&lt;!-- Target #header --&gt;
+&lt;a href=&quot;#header&quot;&gt;To #header&lt;/a&gt;
+
+&lt;!-- Specify the coordinates --&gt;
+&lt;a href=&quot;#100&quot;&gt;Click to move!&lt;/a&gt;
+
+&lt;!-- Using custom data attributes --&gt;
+&lt;a href=&quot;#&quot; data-target=&quot;#header&quot;&gt;To #header&lt;/a&gt;</code></pre>
+        </div>
+        <div class="col-sm-6">
+          <h3>JavaScript</h3>
+          <pre><code class="javascript">// Start by clicking the anchor that begins with &quot;#&quot;
+$(&quot;a[href^=&#039;#&#039;]&quot;).sweetScroll();
+
+// You can use the some public method.
+$.sweetScroll({
+  to: 1000
+});</code></pre>
+        </div>
+      </div>
+    </div>
+  <!-- #setup --></div>
+
+  <div class="section" id="options">
+    <div class="container">
+      <h2>Many options</h2>
+      <p class="lead">You can be flexibly customized in many settings.</p>
+
+      <h3>Defaults</h3>
+      <pre><code class="javascript">$(&quot;a[href^=&#039;#&#039;]&quot;).sweetScroll({
+  duration: 1200,           //&quot;auto&quot; or specifies animation duration in integer.
+  delay: 0,                 //Specifies the milliseconds to start to scroll.
+  easing: &quot;easeOutQuint&quot;,   //Specifies the easing function of scroll.
+  target: null,             //Specifies the target of the scroll position. Example =&gt; target: &quot;#header&quot;
+  to: null,                 //Specifies the scroll positions.
+  offset: 0,                //Adjust the scroll positions.
+  autoCoefficient: 2,       //coefficient for &quot;auto&quot; speed.
+  stopScroll: true,         //Stop scrolling in any of the events of the wheel or touch move.
+  changeHash: false,        //Change the hash after scrolled.
+  verticalScroll: true,     //Enable the vertical scroll.
+  horizontalScroll: false,  //Enable the horizontal scroll.
+  loadedScroll: false,      //Scroll to the position of the hash when the page read.
+  loadedScrollQuery: false, //The priority than the &quot;loadedScroll&quot;.
+  stopPropagation: true,    //Stop the bubbling of anchor click event.
+  useVelocity: true,        //if velocity is possible to use from the jQuery or Zepto is used as an alternative to &quot;animate()&quot; method.
+
+  // Callbacks
+  beforeScroll: null,
+  afterScroll: null,
+  cancelScroll: null
+});</code></pre>
+  
+      <div class="bs-callout bs-callout-info">
+        <h3>If you use a custom data attributes</h3>
+        <p>Specifies the option name and its value following the <code>data-</code>.</p>
+        <h4><i class="fa fa-hand-o-right"></i> Result:</h4>
+        <p><a href="#" data-easing="easeInOutQuint" data-to="0" data-offset="500">Click to move!</a></p>
+        <h4><i class="fa fa-code"></i> Code:</h4>
+        <pre><code class="html">&lt;a href=&quot;#&quot; data-easing=&quot;easeInOutQuint&quot; data-to=&quot;0&quot; data-offset=&quot;500&quot;&gt;Click to move!&lt;/a&gt;</code></pre>
+      </div>
+  
+      <div class="bs-callout bs-callout-info">
+        <h3>Specified format</h3>
+        <p>various specification format of <code>href</code> and <code>to</code> and <code>offset</code> option.</p>
+        <h4><i class="fa fa-code"></i> Code:</h4>
+        <pre><code class="javascript">&lt;!-- Like the object format =&gt; top:[0-9], left:[0-9] --&gt;
+&lt;a href=&quot;#{top:100,left:0}&quot;&gt;Anchor&lt;/a&gt;
+&lt;a href=&quot;#top:100,left:0&quot;&gt;Anchor&lt;/a&gt;
+&lt;a href=&quot;#top:500&quot;&gt;Anchor&lt;/a&gt;
+&lt;a href=&quot;#&quot; data-to=&quot;{top:1000,left:0}&quot;&gt;Anchor&lt;/a&gt;
+&lt;a href=&quot;#&quot; data-to=&quot;{top:1000}&quot;&gt;Anchor&lt;/a&gt;
+&lt;a href=&quot;#&quot; data-to=&quot;top:1000,left:200&quot;&gt;Anchor&lt;/a&gt;
+&lt;a href=&quot;#&quot; data-to=&quot;top:1000&quot;&gt;Anchor&lt;/a&gt;
+
+&lt;!-- Like the array format =&gt; top, left --&gt;
+&lt;a href=&quot;#500,0&quot;&gt;Anchor&lt;/a&gt;
+&lt;a href=&quot;#&quot; data-to=&quot;1000,300&quot;&gt;Anchor&lt;/a&gt;
+
+&lt;!-- Numeric format --&gt;
+&lt;a href=&quot;#500&quot;&gt;Anchor&lt;/a&gt;
+&lt;a href=&quot;#&quot; data-to=&quot;500&quot;&gt;Anchor&lt;/a&gt;</code></pre>
+      </div>
+
+    </div>
+  <!-- #options --></div>
+
+  <div class="section" id="methods">
+    <div class="container">
+      <h2>Methods</h2>
+      <p class="lead">You can use the some method.</p>
+
+      <h3>$.fn.sweetScroll("method")</h3>
+      <pre><code class="javascript">// Disable SweetScroll.
+$(selector).sweetScroll(&quot;disable&quot;);
+
+// Enable SweetScroll.
+$(selector).sweetScroll(&quot;enable&quot;);
+
+// Disable SweetScroll.
+$(selector).sweetScroll(&quot;destroy&quot;);</code></pre>
+
+      <h3>$.sweetScroll("method")</h3>
+      <pre><code class="javascript">// Specify the operation at the time of page load.
+// You need to run before the DOMContentLoaded event.
+$.sweetScroll(&quot;loaded&quot;, {
+  // parametors.
+});
+
+// Global Disable SweetScroll.
+$.sweetScroll(&quot;disable&quot;);
+
+// Global Enable SweetScroll.
+$.sweetScroll(&quot;enable&quot;);
+
+// Global Destroy SweetScroll.
+$.sweetScroll(&quot;destroy&quot;);</code></pre>
+    </div>
+  <!-- #methods --></div>
+
+  <div class="section" id="zepto">
+    <div class="container">
+      <h2>Zepto</h2>
+      <p class="lead">If you want to use from Zepto is the following can be specified for easing.</p>
+      <div class="row">
+        <div class="col-sm-offset-3 col-sm-9">
+          <ul class="list-unstyled">
+            <li><i class="fa fa-check"></i> <code>"linear"</code></li>
+            <li><i class="fa fa-check"></i> <code>"ease-in"</code> (the same as the "easeInQuint")</li>
+            <li><i class="fa fa-check"></i> <code>"ease-out"</code> (the same as the "easeOutQuint")</li>
+            <li><i class="fa fa-check"></i> <code>"ease-in-out"</code> (the same as the "easeInOutQuint")</li>
+            <li><i class="fa fa-close"></i> <code>cubic-bezier (...)</code> can not be used.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <!-- #zepto --></div>
+
+  <div class="section" id="examples">
+    <div class="container">
+      <h2>Examples</h2>
+      <p class="lead">Please check below if you want to see other examples.</p>
+      <div class="row">
+        <div class="col-sm-6">
+          <ul class="list-unstyled">
+            <li><a href="basic.html" class="btn btn-block btn-primary"><i class="fa fa-chevron-right"></i> Using jQuery (Basic)</a></li>
+            <li><a href="zepto.html" class="btn btn-block btn-primary"><i class="fa fa-chevron-right"></i> Using Zepto</a></li>
+            <li><a href="velocity.html" class="btn btn-block btn-primary"><i class="fa fa-chevron-right"></i> Using Velocity</a></li>
+            <li><a href="vertical_horizontal.html" class="btn btn-block btn-primary"><i class="fa fa-chevron-right"></i> Vertical &amp; Horizontal</a></li>
+            <li><a href="dynamic_anchor.html" class="btn btn-block btn-primary"><i class="fa fa-chevron-right"></i> Dynamically added elements</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6">
+          <ul class="list-unstyled">
+            <li><a href="loaded.html#block3" class="btn btn-block btn-primary"><i class="fa fa-chevron-right"></i> Page Loaded</a></li>
+            <li><a href="cancel.html" class="btn btn-block btn-primary"><i class="fa fa-chevron-right"></i> Cancel Scroll</a></li>
+            <li><a href="events.html" class="btn btn-block btn-primary"><i class="fa fa-chevron-right"></i> Original Events</a></li>
+            <li><a href="toggle.html" class="btn btn-block btn-primary"><i class="fa fa-chevron-right"></i> Enable &amp; Disable</a></li>
+            <li><a href="destroy.html" class="btn btn-block btn-primary"><i class="fa fa-chevron-right"></i> Destroy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <!-- #examples --></div>
+
+  <div class="section" id="browsers">
+    <div class="container">
+      <h2>Browser Support</h2>
+      <p class="lead">Support many of the browsers.</p>
+      <ul class="list-inline text-center browser-list">
+        <li><img src="images/icon_browser_ie.png" alt="InternetExplorer"></li>
+        <li><img src="images/icon_browser_chrome.png" alt="Chrome"></li>
+        <li><img src="images/icon_browser_safari.png" alt="Safari"></li>
+        <li><img src="images/icon_browser_firefox.png" alt="Firefox"></li>
+      </ul>
+      <div class="row">
+        <div class="col-sm-6">
+          <h3>Using</h3>
+          <h4><a href="https://jquery.com/" target="_blank"><img src="images/icon_jquery.png" alt="jQuery"></a></h4>
+          <ul class="list-unstyled">
+            <li><i class="fa fa-check"></i> Internet Explorer 7 +</li>
+            <li><i class="fa fa-check"></i> Chrome</li>
+            <li><i class="fa fa-check"></i> Safari</li>
+            <li><i class="fa fa-check"></i> Firefox</li>
+            <li><i class="fa fa-check"></i> iOS 5 +</li>
+            <li><i class="fa fa-check"></i> Android 2.3</li>
+          </ul>
+        </div>
+        <div class="col-sm-6">
+          <h3>Using</h3>
+          <h4><a href="http://zeptojs.com/" target="_blank"><img src="images/icon_zepto.png" alt="Zepto"></a></h4>
+          <ul class="list-unstyled">
+            <li><i class="fa fa-check"></i> Internet Explorer 9 +</li>
+            <li><i class="fa fa-check"></i> Chrome</li>
+            <li><i class="fa fa-check"></i> Safari</li>
+            <li><i class="fa fa-check"></i> Firefox</li>
+            <li><i class="fa fa-check"></i> iOS 5 +</li>
+            <li><i class="fa fa-check"></i> Android 2.3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <!-- #browsers --></div>
+
+  <div class="section" id="requirements">
+    <div class="container">
+      <h2>Requirements</h2>
+      <p class="lead">The following libraries are required when you use.</p>
+      <div class="row">
+        <div class="col-sm-6 text-center">
+          <h3><i class="fa fa-check-circle-o"></i> jQuery 1.7.2 +</h3>
+        </div>
+        <div class="col-sm-6 text-center">
+          <h3><i class="fa fa-check-circle-o"></i> Zepto 1.1.x +</h3>
+        </div>
+      </div>
+    </div>
+  <!-- #requirements --></div>
+
+  <div class="footer" id="footer">
+    <div class="container">
+      <p>Released under the <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a></p>
+      <p>Copyright &copy; 2015 <a href="https://github.com/tsuyoshiwada" target="_blank">tsuyoshiwada</a> All Right Reserved.</p>
+    </div>
+  <!-- #footer --></div>
+
+  <button class="page-control-toggle btn btn-primary"><i class="fa fa-bars"></i></button>
+  <div class="page-controls">
+    <ul>
+      <li><a href="#0"><i class="fa fa-chevron-up"></i></a></li>
+      <li><a href="#demo">Demo</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="#setup">Setup</a></li>
+      <li><a href="#options">Options</a></li>
+      <li><a href="#methods">Methods</a></li>
+      <li><a href="#zepto">Zepto</a></li>
+      <li><a href="#examples">Examples</a></li>
+      <li><a href="#browsers">Browsers</a></li>
+      <li><a href="#requirements">Requirements</a></li>
+      <li><a href="#footer"><i class="fa fa-chevron-down"></i></a></li>
+    </ul>
+  </div>
+
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="js/jquery.sweet-scroll.js"></script>
+  <script>
+  $(function(){
+
+    // sweet scroll
+    $("a[href^='#']").sweetScroll();
+
+    // demo
+    $("#btn-demo").on("click", function(){
+      var to = $("#value-to").val() || 0,
+          offset = $("#value-offset").val() || 0,
+          duration = $("#value-duration").val() || 1000,
+          easing = $("#value-easing").val();
+      
+      $.sweetScroll({
+        to: to,
+        offset: offset,
+        duration: duration,
+        easing: easing
+      });
+
+    });
+  });
+  </script>
+
+</body>
+</html>

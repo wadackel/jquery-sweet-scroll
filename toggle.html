@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>Enable &amp; Disable | jQuery SweetScroll</title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="vendor/highlight/styles/github.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body class="examples">
+
+  <div class="header">
+    <p class="logo"><a class="btn btn-primary" href="index.html#examples"><i class="fa fa-chevron-left"></i> Top page</a></p>
+  <!-- .header --></div>
+
+  <div class="cover">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Enable &amp; Disable</h1>
+        <p>Temporarily allows you to enable or disable the SweerScroll.</p>
+
+        <h2>&lt;a href="#"&gt;&lt;/a&gt;</h2>
+        <ul class="list-inline">
+          <li><a href="#block1" class="btn btn-primary">Block 1</a></li>
+          <li><a href="#block2" class="btn btn-primary">Block 2</a></li>
+          <li><a href="#block3" class="btn btn-primary">Block 3</a></li>
+          <li><a href="#block4" class="btn btn-primary">Block 4</a></li>
+          <li><a href="#block5" class="btn btn-primary">Block 5</a></li>
+        </ul>
+
+        <h2>&lt;button data-target="#"&gt;&lt;/button&gt;</h2>
+        <ul class="list-inline">
+          <li><button type="button" data-target="#block1" class="btn btn-primary">Block 1</button></li>
+          <li><button type="button" data-target="#block2" class="btn btn-primary">Block 2</button></li>
+          <li><button type="button" data-target="#block3" class="btn btn-primary">Block 3</button></li>
+          <li><button type="button" data-target="#block4" class="btn btn-primary">Block 4</button></li>
+          <li><button type="button" data-target="#block5" class="btn btn-primary">Block 5</button></li>
+        </ul>
+
+        <h2>Anchor Change state</h2>
+        <ul class="list-inline">
+          <li><button type="button" id="btn-enable" class="btn btn-primary">Enable</button></li>
+          <li><button type="button" id="btn-disable" class="btn btn-primary">Disable</button></li>
+        </ul>
+
+        <h2>Global Change state</h2>
+        <ul class="list-inline">
+          <li><button type="button" id="btn-global-enable" class="btn btn-primary">Enable</button></li>
+          <li><button type="button" id="btn-global-disable" class="btn btn-primary">Disable</button></li>
+        </ul>
+
+        <h3>HTML</h3>
+        <pre><code class="html">&lt;h2&gt;Anchor Change state&lt;/h2&gt;
+&lt;ul class=&quot;list-inline&quot;&gt;
+  &lt;li&gt;&lt;button type=&quot;button&quot; id=&quot;btn-enable&quot; class=&quot;btn btn-primary&quot;&gt;Enable&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;button type=&quot;button&quot; id=&quot;btn-disable&quot; class=&quot;btn btn-primary&quot;&gt;Disable&lt;/button&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Global Change state&lt;/h2&gt;
+&lt;ul class=&quot;list-inline&quot;&gt;
+  &lt;li&gt;&lt;button type=&quot;button&quot; id=&quot;btn-global-enable&quot; class=&quot;btn btn-primary&quot;&gt;Enable&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;button type=&quot;button&quot; id=&quot;btn-global-disable&quot; class=&quot;btn btn-primary&quot;&gt;Disable&lt;/button&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+        <h3>JavaScript</h3>
+        <pre><code class="javascript">$(function(){
+  $(&quot;button&quot;).sweetScroll();
+
+  var $anchor = $(&quot;a[href^=&#039;#&#039;]&quot;).sweetScroll();
+
+  // Enable SweetScroll
+  $(&quot;#btn-enable&quot;).on(&quot;click&quot;, function(){
+    $anchor.sweetScroll(&quot;enable&quot;);
+  });
+
+  // Disable SweetScroll
+  $(&quot;#btn-disable&quot;).on(&quot;click&quot;, function(){
+    $anchor.sweetScroll(&quot;disable&quot;);
+  });
+
+  // Global enable SweetScroll
+  $(&quot;#btn-global-enable&quot;).on(&quot;click&quot;, function(){
+    $.sweetScroll(&quot;enable&quot;);
+  });
+
+  // Global disable SweetScroll
+  $(&quot;#btn-global-disable&quot;).on(&quot;click&quot;, function(){
+    $.sweetScroll(&quot;disable&quot;);
+  });
+});</code></pre>
+      </div>
+    </div>
+  <!-- .cover --></div>
+
+  <div class="block" id="block1"><h2>Block 1</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  <div class="block" id="block2"><h2>Block 2</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  <div class="block" id="block3"><h2>Block 3</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  <div class="block" id="block4"><h2>Block 4</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  <div class="block" id="block5"><h2>Block 5</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  
+
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="js/jquery.sweet-scroll.js"></script>
+  <script>
+$(function(){
+  $("button").sweetScroll();
+
+  var $anchor = $("a[href^='#']").sweetScroll();
+
+  // Enable SweetScroll
+  $("#btn-enable").on("click", function(){
+    $anchor.sweetScroll("enable");
+  });
+
+  // Disable SweetScroll
+  $("#btn-disable").on("click", function(){
+    $anchor.sweetScroll("disable");
+  });
+
+  // Global enable SweetScroll
+  $("#btn-global-enable").on("click", function(){
+    $.sweetScroll("enable");
+  });
+
+  // Global disable SweetScroll
+  $("#btn-global-disable").on("click", function(){
+    $.sweetScroll("disable");
+  });
+});
+  </script>
+
+</body>
+</html>

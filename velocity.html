@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>Using Velocity | jQuery SweetScroll</title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="vendor/highlight/styles/github.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body class="examples">
+
+  <div class="header">
+    <p class="logo"><a class="btn btn-primary" href="index.html#examples"><i class="fa fa-chevron-left"></i> Top page</a></p>
+  <!-- .header --></div>
+
+  <div class="cover">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Using Velocity</h1>
+        <p>
+          Only in the case of vertical or horizontal scroll either it is enabled.<br />
+          Please refer to the project page <a href="http://julian.com/research/velocity/" target="_blank">velocity</a> detail of.
+        </p>
+
+        <h2>Href</h2>
+        <ul class="list-inline">
+          <li><a href="#block1" class="btn btn-primary">href="#block1"</a></li>
+          <li><a href="#block2" class="btn btn-primary">href="#block2"</a></li>
+          <li><a href="#block3" class="btn btn-primary">href="#block3"</a></li>
+          <li><a href="#block4" class="btn btn-primary">href="#block4"</a></li>
+          <li><a href="#block5" class="btn btn-primary">href="#block5"</a></li>
+        </ul>
+
+        <h2>Custom data attribute</h2>
+        <ul class="list-inline">
+          <li><button data-target="#block1" class="btn btn-primary">data-target="#block1"</button></li>
+          <li><button data-target="#block2" class="btn btn-primary">data-target="#block2"</button></li>
+          <li><button data-target="#block3" class="btn btn-primary">data-target="#block3"</button></li>
+          <li><button data-target="#block4" class="btn btn-primary">data-target="#block4"</button></li>
+          <li><button data-target="#block5" class="btn btn-primary">data-target="#block5"</button></li>
+        </ul>
+
+        <h3>HTML</h3>
+        <pre><code class="html">&lt;h2&gt;Href&lt;/h2&gt;
+&lt;ul class=&quot;list-inline&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#block1&quot; class=&quot;btn btn-primary&quot;&gt;href=&quot;#block1&quot;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#block2&quot; class=&quot;btn btn-primary&quot;&gt;href=&quot;#block2&quot;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#block3&quot; class=&quot;btn btn-primary&quot;&gt;href=&quot;#block3&quot;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#block4&quot; class=&quot;btn btn-primary&quot;&gt;href=&quot;#block4&quot;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#block5&quot; class=&quot;btn btn-primary&quot;&gt;href=&quot;#block5&quot;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Custom data attribute&lt;/h2&gt;
+&lt;ul class=&quot;list-inline&quot;&gt;
+  &lt;li&gt;&lt;button data-target=&quot;#block1&quot; class=&quot;btn btn-primary&quot;&gt;data-target=&quot;#block1&quot;&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;button data-target=&quot;#block2&quot; class=&quot;btn btn-primary&quot;&gt;data-target=&quot;#block2&quot;&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;button data-target=&quot;#block3&quot; class=&quot;btn btn-primary&quot;&gt;data-target=&quot;#block3&quot;&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;button data-target=&quot;#block4&quot; class=&quot;btn btn-primary&quot;&gt;data-target=&quot;#block4&quot;&lt;/button&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;button data-target=&quot;#block5&quot; class=&quot;btn btn-primary&quot;&gt;data-target=&quot;#block5&quot;&lt;/button&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Include the jQuery and velocity. --&gt;
+&lt;script src=&quot;js/jquery-1.11.0.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/velocity-1.1.2.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+        <h3>JavaScript</h3>
+        <pre><code class="javascript">$(function(){
+  $(&quot;a[href^=&#039;#&#039;], [data-target^=&#039;#&#039;]&quot;).sweetScroll({
+    verticalScroll: true,
+    horizontalScroll: false,
+    useVelocity: true
+  });
+});</code></pre>
+      </div>
+    </div>
+  <!-- .cover --></div>
+
+  <div class="block" id="block1"><h2>Block 1</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  <div class="block" id="block2"><h2>Block 2</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  <div class="block" id="block3"><h2>Block 3</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  <div class="block" id="block4"><h2>Block 4</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  <div class="block" id="block5"><h2>Block 5</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  
+  <!-- Include the jQuery and velocity. -->
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/velocity-1.1.2.min.js"></script>
+
+  <script src="js/demo.js"></script>
+  <script src="js/jquery.sweet-scroll.js"></script>
+  <script>
+$(function(){
+  $("a[href^='#'], [data-target^='#']").sweetScroll({
+    verticalScroll: true,
+    horizontalScroll: false,
+    useVelocity: true
+  });
+});
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>Original Events | jQuery SweetScroll</title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="vendor/highlight/styles/github.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body class="examples">
+
+  <div class="header">
+    <p class="logo"><a class="btn btn-primary" href="index.html#examples"><i class="fa fa-chevron-left"></i> Top page</a></p>
+  <!-- .header --></div>
+
+  <!-- Show status -->
+  <div id="status">
+    Callback: <span id="status-callback"></span><br />
+    Event: <span id="status-event"></span>
+  </div>
+
+  <div class="cover">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Original Events</h1>
+        <p>
+          Original event with the same name as the callback you can use.<br />
+          In addition, you can interrupt the operation by returning <code>false</code> to <code>beforeScroll</code> callback.
+        </p>
+
+        <h2>Show status</h2>
+        <ul class="list-inline">
+          <li><a href="#block1" class="btn btn-primary">Block 1</a></li>
+          <li><a href="#block2" class="btn btn-primary">Block 2</a></li>
+          <li><a href="#block3" class="btn btn-primary">Block 3</a></li>
+          <li><a href="#block4" class="btn btn-primary">Block 4</a></li>
+          <li><a href="#block5" class="btn btn-primary">Block 5</a></li>
+        </ul>
+
+        <h2>beforeScroll callback</h2>
+        <ul class="list-inline">
+          <li><a href="#block1" class="return-true btn btn-primary">void</a></li>
+          <li><a href="#block2" class="return-false btn btn-primary">return false</a></li>
+        </ul>
+
+        <h3>HTML</h3>
+        <pre><code class="html">&lt;!-- Show status --&gt;
+&lt;div id=&quot;status&quot;&gt;
+  Callback: &lt;span id=&quot;status-callback&quot;&gt;&lt;/span&gt;&lt;br /&gt;
+  Event: &lt;span id=&quot;status-event&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;ul class=&quot;list-inline&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#block1&quot; class=&quot;return-true btn btn-primary&quot;&gt;void&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#block2&quot; class=&quot;return-false btn btn-primary&quot;&gt;return false&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+        <h3>JavaScript</h3>
+        <pre><code class="javascript">$(function(){
+
+  // Show status
+  var $statusCallback = $(&quot;#status-callback&quot;),
+      $statusEvent = $(&quot;#status-event&quot;);
+
+  // Callbacks &amp; Events.
+  $(&quot;a[href^=&#039;#&#039;]&quot;)
+    .sweetScroll({
+      beforeScroll: function(scrollProperties){
+        if( $(this).hasClass(&quot;return-false&quot;) ){
+          return false;
+        }
+        $statusCallback.text(&quot;beforeScroll&quot;);
+      },
+      afterScroll: function(scrollProperties){
+        $statusCallback.text(&quot;afterScroll&quot;);
+      },
+      cancelScroll: function(){
+        $statusCallback.text(&quot;cancelScroll&quot;);
+      }
+    })
+    .on(&quot;sweetscroll.beforeScroll&quot;, function(e){
+      $statusEvent.text(&quot;sweetscroll.beforeScroll&quot;);
+    })
+    .on(&quot;sweetscroll.afterScroll&quot;, function(e){
+      $statusEvent.text(&quot;sweetscroll.afterScroll&quot;);
+    })
+    .on(&quot;sweetscroll.cancelScroll&quot;, function(e){
+      $statusEvent.text(&quot;sweetscroll.cancelScroll&quot;);
+    });
+
+});</code></pre>
+      </div>
+    </div>
+  <!-- .cover --></div>
+
+  <div class="block" id="block1"><h2>Block 1</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  <div class="block" id="block2"><h2>Block 2</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  <div class="block" id="block3"><h2>Block 3</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  <div class="block" id="block4"><h2>Block 4</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  <div class="block" id="block5"><h2>Block 5</h2><p><a href="#" data-to="0" class="pagetop btn btn-primary">Page top</a></p></div>
+  
+
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="js/jquery.sweet-scroll.js"></script>
+  <script>
+$(function(){
+
+  // Show status
+  var $statusCallback = $("#status-callback"),
+      $statusEvent = $("#status-event");
+
+  // Callbacks & Events.
+  $("a[href^='#']")
+    .sweetScroll({
+      beforeScroll: function(scrollProperties){
+        if( $(this).hasClass("return-false") ){
+          return false;
+        }
+        $statusCallback.text("beforeScroll");
+      },
+      afterScroll: function(scrollProperties){
+        $statusCallback.text("afterScroll");
+      },
+      cancelScroll: function(){
+        $statusCallback.text("cancelScroll");
+      }
+    })
+    .on("sweetscroll.beforeScroll", function(e){
+      $statusEvent.text("sweetscroll.beforeScroll");
+    })
+    .on("sweetscroll.afterScroll", function(e){
+      $statusEvent.text("sweetscroll.afterScroll");
+    })
+    .on("sweetscroll.cancelScroll", function(e){
+      $statusEvent.text("sweetscroll.cancelScroll");
+    });
+
+});
+  </script>
+
+</body>
+</html>

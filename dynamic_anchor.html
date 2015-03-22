@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>Dynamically added elements | jQuery SweetScroll</title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="vendor/highlight/styles/github.css">
+  <link rel="stylesheet" href="css/demo.css">
+  <style>
+  #holder {
+    padding:1em 0;
+    text-align:center;
+  }
+
+  #holder a {
+    font-size:18px;
+  }
+  </style>
+</head>
+<body class="examples">
+
+  <div class="header">
+    <p class="logo"><a class="btn btn-primary" href="index.html#examples"><i class="fa fa-chevron-left"></i> Top page</a></p>
+  <!-- .header --></div>
+
+  <div class="cover">
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Dynamically added elements</h1>
+        <p>SweetScroll is valid even for dynamically added elements.</p>
+
+        <h2>Try Example</h2>
+        <p><button type="button" id="btn-add" class="btn btn-primary">Add Link!</button></p>
+        <ul id="holder" class="list-inline"></ul>
+
+        <h3>HTML</h3>
+        <pre><code class="html">&lt;p&gt;&lt;button type=&quot;button&quot; id=&quot;btn-add&quot; class=&quot;btn btn-primary&quot;&gt;Add Link!&lt;/button&gt;&lt;/p&gt;
+&lt;ul id=&quot;holder&quot; class=&quot;list-inline&quot;&gt;&lt;/ul&gt;
+
+&lt;div id=&quot;block-holder&quot;&gt;&lt;/div&gt;</code></pre>
+
+        <h3>JavaScript</h3>
+        <pre><code class="javascript">$(function(){
+  $(&quot;a[href^=&#039;#&#039;]&quot;).sweetScroll();
+
+  var $holder = $(&quot;#holder&quot;),
+      $blockHolder = $(&quot;#block-holder&quot;),
+      count = 0;
+
+  $(&quot;#btn-add&quot;).on(&quot;click&quot;, function(){
+    count++;
+
+    var id = &quot;block&quot; + count;
+    $holder.append(&#039;&lt;li&gt;&lt;a class=&quot;btn btn-primary&quot; href=&quot;#&#039; + id + &#039;&quot;&gt;Block&#039; + count + &#039;&lt;/a&gt;&lt;/li&gt;&#039;);
+    $blockHolder.append(&#039;&lt;div class=&quot;block&quot; id=&quot;&#039; + id + &#039;&quot;&gt;&lt;h2&gt;Block&#039; + count + &#039;&lt;/h2&gt;&lt;/div&gt;&#039;);
+  });
+});</code></pre>
+      </div>
+    </div>
+  <!-- .cover --></div>
+
+  <div id="block-holder"></div>
+
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="js/jquery.sweet-scroll.js"></script>
+  <script>
+$(function(){
+  $("a[href^='#']").sweetScroll();
+
+  var $holder = $("#holder"),
+      $blockHolder = $("#block-holder"),
+      count = 0;
+
+  $("#btn-add").on("click", function(){
+    count++;
+
+    var id = "block" + count;
+    $holder.append('<li><a class="btn btn-primary" href="#' + id + '">Block' + count + '</a></li>');
+    $blockHolder.append('<div class="block" id="' + id + '"><h2>Block' + count + '</h2></div>');
+  });
+});
+  </script>
+
+</body>
+</html>
