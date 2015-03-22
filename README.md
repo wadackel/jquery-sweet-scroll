@@ -8,9 +8,9 @@ It is possible to easily and flexibly implement smooth scrolling in the same pag
 
 ## Demo
 
-[![screenshot](https://raw.githubusercontent.com/tsuyoshiwada/jquery-sweet-scroll/images/sweet-scroll.png)](https://tsuyoshiwada.github.com/jquery-sweet-scroll/)
+[![screenshot](https://raw.githubusercontent.com/tsuyoshiwada/jquery-sweet-scroll/images/sweet-scroll.png)](http://tsuyoshiwada.github.io/jquery-sweet-scroll/)
 
-[demo](https://tsuyoshiwada.github.com/jquery-sweet-scroll/)
+[demo](http://tsuyoshiwada.github.io/jquery-sweet-scroll/)
 
 
 ## Requirements
@@ -35,7 +35,7 @@ $ bower install jquery-sweet-scroll
 ### Manual
 
 ```html
-<script src="jquery.sweetScroll.min.js"></script>
+<script src="jquery.sweet-scroll.min.js"></script>
 ```
 
 
