@@ -1,0 +1,30 @@
+{
+  "name": "jquery-sweet-scroll",
+  "version": "1.0.0",
+  "homepage": "https://github.com/tsuyoshiwada/jquery-sweet-scroll",
+  "authors": [
+    "tsuyoshiwada"
+  ],
+  "description": "It is possible to easily and flexibly implement smooth scrolling in the same page.",
+  "main": "jquery-sweet-scroll.js",
+  "keywords": [
+    "jQuery",
+    "jquery-plugin",
+    "Zepto",
+    "zepto-plugin",
+    "scroll",
+    "animation"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    ".DS_Store",
+    ".sass-cache",
+    ".gitignore",
+    "src",
+    "gulpfile.coffee",
+    "package.json",
+    "node_modules",
+    "bower_components"
+  ]
+}
