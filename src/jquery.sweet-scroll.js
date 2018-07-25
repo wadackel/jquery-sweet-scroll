@@ -136,7 +136,7 @@
           targetOffset,
           tmpOffset;
 
-      if( !/[:,]/.test(strTarget) && $(strTarget).size() > 0 ){
+      if( !/[:,]/.test(strTarget) && $(strTarget).length > 0 ){
         targetOffset = $(strTarget).offset();
         if( !targetOffset ) return;
         scroll.scrollTop = targetOffset.top;
@@ -750,7 +750,7 @@
       if( currentTarget === e.target ) return;
       currentTarget = e.target;
 
-      var $this = $(this),
+      var $this = $(currentTarget),
           params = $.extend({}, defaults, options),
           dataOptions = {},
           val;
@@ -790,7 +790,7 @@
           hash = loadedOptions.loadedScrollQuery ? location.search.replace("?", "#") : location.hash,
           to = SweetScroll.formatCoodinate(hash);
 
-      if( !/[:,]/.test(hash) && $(hash).size() > 0 ){
+      if( !/[:,]/.test(hash) && $(hash).length > 0 ){
         loadedOptions = $.extend(loadedOptions, {target: hash});
         location.hash = "";
       }else{
